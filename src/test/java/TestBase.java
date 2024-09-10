@@ -19,6 +19,7 @@ public class TestBase {
     CreateIndustry createIndustry;
     CreateSite createSite;
     SchedulerPage schedulerPage;
+    CreatePartner createPartner;
     static WebDriverWait wait;
 
     @BeforeEach
@@ -36,6 +37,7 @@ public class TestBase {
         createIndustry = new CreateIndustry(webDriver);
         schedulerPage = new SchedulerPage(webDriver);
         createSite = new CreateSite(webDriver);
+        createPartner = new CreatePartner(webDriver);
     }
 }
 
