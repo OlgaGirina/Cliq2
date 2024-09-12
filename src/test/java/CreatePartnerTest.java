@@ -13,10 +13,13 @@ public class CreatePartnerTest extends TestBase {
         createPartner.choosePartnerFromMenu();
         createPartner.pressButtonCreatePartner();
         Thread.sleep(2000);
-        createPartner.inputPartnerName("PartnerTestAuto");
         createPartner.chooseIndustryForNewPartner("NewIndustryAuto");
+        createPartner.inputPartnerName("NewPartnerName5");
+        createPartner.pressButtonAddReferrer();
+        Thread.sleep(3000);
+        createPartner.addReferrerDomain("autotest.cliq-track-master.sb.cliqonline.com");
+        createPartner.saveNewPartnerForm();
     }
-
     @AfterEach
     public void TearDown() {
         webDriver.quit();
