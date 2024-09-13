@@ -1,4 +1,5 @@
 import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -14,11 +15,12 @@ public class CreatePartnerTest extends TestBase {
         createPartner.pressButtonCreatePartner();
         Thread.sleep(2000);
         createPartner.chooseIndustryForNewPartner("NewIndustryAuto");
-        createPartner.inputPartnerName("NewPartnerName5");
+        createPartner.inputPartnerName("NewPartnerName6");
         createPartner.pressButtonAddReferrer();
         Thread.sleep(3000);
         createPartner.addReferrerDomain("autotest.cliq-track-master.sb.cliqonline.com");
         createPartner.saveNewPartnerForm();
+        Assertions.assertTrue(createPartner.checkResultPhrasePartnerCreate());
     }
     @AfterEach
     public void TearDown() {

@@ -17,6 +17,7 @@ public class CreatePartner extends BasePage {
     private By addReferrerDomainButton = By.xpath("//button/i[@class=\"fa fa-plus-circle\"]");
     private By referrerAdd = By.xpath("//td/div/div/input[@class=\"form-control\"]");
     private By saveButton = By.xpath("//button[@type=\"submit\"]");
+    private By partnerCreatedCheck = By.xpath("//a[text() = \"  CLIQ Admin\"]");
     public CreatePartner choosePartnerFromMenu() {
         wait.until(ExpectedConditions.visibilityOfElementLocated(partnerMenu)).click();
         return this;
@@ -56,4 +57,13 @@ public class CreatePartner extends BasePage {
         wait.until(ExpectedConditions.visibilityOfElementLocated(saveButton)).click();
         return this;
     }
+    public boolean checkResultPhrasePartnerCreate() {
+        try {
+            wait.until(ExpectedConditions.visibilityOfElementLocated(partnerCreatedCheck));
+            return true;
+        } catch (TimeoutException timeoutException) {
+            return false;
+        }
+    }
+
 }
