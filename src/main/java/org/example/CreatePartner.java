@@ -18,6 +18,10 @@ public class CreatePartner extends BasePage {
     private By referrerAdd = By.xpath("//td/div/div/input[@class=\"form-control\"]");
     private By saveButton = By.xpath("//button[@type=\"submit\"]");
     private By partnerCreatedCheck = By.xpath("//a[text() = \"  CLIQ Admin\"]");
+    private By partnerInFilter = By.xpath("//*[@id=\"w0-filters\"]/div[2]/div/span/span[1]/span/ul/li/input");
+    private By buttonApply = By.xpath("//button[@type=\"submit\"]");
+    private By buttonDeletePartner = By.xpath("//a/span[@class=\"glyphicon glyphicon-trash\"]");
+    private By deleteOkButton = By.xpath("//div/button[@id=\"13ebf9f3-76ae-4889-95f8-bdf7605d36ef\"]");
     public CreatePartner choosePartnerFromMenu() {
         wait.until(ExpectedConditions.visibilityOfElementLocated(partnerMenu)).click();
         return this;
@@ -64,6 +68,21 @@ public class CreatePartner extends BasePage {
         } catch (TimeoutException timeoutException) {
             return false;
         }
+    }
+    public CreatePartner chooseCreatedPartnerInFilter(String partner){
+        WebElement choosePartnerInFilter = wait.until(ExpectedConditions.visibilityOfElementLocated(partnerInFilter));
+        choosePartnerInFilter.click();
+    //    choosePartnerInFilter.sendKeys(partner,Keys.ENTER);
+        return this;
+    }
+    public CreatePartner pressApplyInFilter(){
+        wait.until(ExpectedConditions.visibilityOfElementLocated(buttonApply)).click();
+        return this;
+    }
+    public CreatePartner pressDeletePartnerButton(){
+        wait.until(ExpectedConditions.visibilityOfElementLocated(buttonDeletePartner)).click();
+        wait.until(ExpectedConditions.visibilityOfElementLocated(deleteOkButton)).click();
+        return this;
     }
 
 }

@@ -15,14 +15,28 @@ public class CreatePartnerTest extends TestBase {
         createPartner.pressButtonCreatePartner();
         Thread.sleep(2000);
         createPartner.chooseIndustryForNewPartner("NewIndustryAuto");
-        createPartner.inputPartnerName("NewPartnerName6");
+        createPartner.inputPartnerName("NewPartnerName7");
         createPartner.pressButtonAddReferrer();
         Thread.sleep(3000);
         createPartner.addReferrerDomain("autotest.cliq-track-master.sb.cliqonline.com");
         createPartner.saveNewPartnerForm();
         Assertions.assertTrue(createPartner.checkResultPhrasePartnerCreate());
+        createPartner.choosePartnerFromMenu();
+        createPartner.chooseCreatedPartnerInFilter("NewPartnerName7");
+        createPartner.pressApplyInFilter();
+        createPartner.pressDeletePartnerButton();
+        Thread.sleep(5000);
     }
-    @AfterEach
+  /*  @Test
+    public void deletePartnerTest() throws  InterruptedException {
+        createPartner.choosePartnerFromMenu();
+        createPartner.chooseCreatedPartnerInFilter("NewPartnerName7");
+        createPartner.pressApplyInFilter();
+        createPartner.pressDeletePartnerButton();
+        Thread.sleep(5000);
+
+   }  */
+@AfterEach
     public void TearDown() {
         webDriver.quit();
     }
