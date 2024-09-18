@@ -2,6 +2,11 @@ package org.example;
 
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.FluentWait;
+import org.openqa.selenium.support.ui.Wait;
+
+import java.time.Duration;
+import java.util.concurrent.TimeUnit;
 
 public class CreatePartner extends BasePage {
     public CreatePartner(WebDriver webDriver) {
@@ -21,7 +26,9 @@ public class CreatePartner extends BasePage {
     private By partnerInFilter = By.xpath("//*[@id=\"w0-filters\"]/div[2]/div/span/span[1]/span/ul/li/input");
     private By buttonApply = By.xpath("//button[@type=\"submit\"]");
     private By buttonDeletePartner = By.xpath("//a/span[@class=\"glyphicon glyphicon-trash\"]");
-    private By deleteOkButton = By.xpath("//div/button[@id=\"13ebf9f3-76ae-4889-95f8-bdf7605d36ef\"]");
+    private By deleteOkButton = By.xpath("//button/span[@class=\"glyphicon glyphicon-ok\"]");
+    private By cleanAllPartnersInFilter= By.xpath("//ul/span[@class=\"select2-selection__clear\"]");
+
     public CreatePartner choosePartnerFromMenu() {
         wait.until(ExpectedConditions.visibilityOfElementLocated(partnerMenu)).click();
         return this;
@@ -72,7 +79,8 @@ public class CreatePartner extends BasePage {
     public CreatePartner chooseCreatedPartnerInFilter(String partner){
         WebElement choosePartnerInFilter = wait.until(ExpectedConditions.visibilityOfElementLocated(partnerInFilter));
         choosePartnerInFilter.click();
-    //    choosePartnerInFilter.sendKeys(partner,Keys.ENTER);
+        choosePartnerInFilter.sendKeys(partner,Keys.ENTER);
+
         return this;
     }
     public CreatePartner pressApplyInFilter(){
@@ -84,5 +92,25 @@ public class CreatePartner extends BasePage {
         wait.until(ExpectedConditions.visibilityOfElementLocated(deleteOkButton)).click();
         return this;
     }
-
-}
+    public CreatePartner cleanFieldPartnerFromMenu() {
+  /*      try {
+            WebElement clickElement = webDriver.findElement(cleanAllPartnersInFilter);
+            if (clickElement != null) {
+                clickElement.click();
+            }
+            return this;
+        }
+        catch (TimeoutException timeoutException){
+            return null;
+        }
+    }*/
+        if (!webDriver.findElements(cleanAllPartnersInFilter).isEmpty()){
+            WebElement clickElement = webDriver.findElement(cleanAllPartnersInFilter);
+            clickElement.click();
+            return this;
+           }
+        else
+           {
+            return this;
+           }
+    }}

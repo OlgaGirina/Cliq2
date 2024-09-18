@@ -1,41 +1,49 @@
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
+import org.junit.jupiter.api.MethodOrderer.OrderAnnotation;
 
+@TestMethodOrder(OrderAnnotation.class)
 public class CreatePartnerTest extends TestBase {
     @BeforeEach
     public void login() {
         signInPage.SignInSuccessful("olga", "Dimapovrez123");
     }
 
+    @Order(1)
     @Test
     public void createPartnerTest() throws InterruptedException {
         createPartner.choosePartnerFromMenu();
         createPartner.pressButtonCreatePartner();
         Thread.sleep(2000);
         createPartner.chooseIndustryForNewPartner("NewIndustryAuto");
-        createPartner.inputPartnerName("NewPartnerName7");
+        createPartner.inputPartnerName("NewPartnerName22");
         createPartner.pressButtonAddReferrer();
         Thread.sleep(3000);
-        createPartner.addReferrerDomain("autotest.cliq-track-master.sb.cliqonline.com");
+        createPartner.addReferrerDomain("autotest1.cliq-track-master.sb.cliqonline.com");
         createPartner.saveNewPartnerForm();
         Assertions.assertTrue(createPartner.checkResultPhrasePartnerCreate());
-        createPartner.choosePartnerFromMenu();
-        createPartner.chooseCreatedPartnerInFilter("NewPartnerName7");
+        Thread.sleep(3000);
+     /*   createPartner.choosePartnerFromMenu();
+        createPartner.chooseCreatedPartnerInFilter("NewPartnerName10");
         createPartner.pressApplyInFilter();
-        createPartner.pressDeletePartnerButton();
-        Thread.sleep(5000);
+     //   createPartner.pressDeletePartnerButton();
+        Thread.sleep(5000);*/
     }
-  /*  @Test
+    @Order(2)
+    @Test
     public void deletePartnerTest() throws  InterruptedException {
+
+        Thread.sleep(3000);
         createPartner.choosePartnerFromMenu();
-        createPartner.chooseCreatedPartnerInFilter("NewPartnerName7");
+        Thread.sleep(5000);
+        createPartner.cleanFieldPartnerFromMenu();
+        Thread.sleep(5000);
+        createPartner.chooseCreatedPartnerInFilter("NewPartnerName22");
+        Thread.sleep(5000);
         createPartner.pressApplyInFilter();
+        Thread.sleep(5000);
         createPartner.pressDeletePartnerButton();
         Thread.sleep(5000);
-
-   }  */
+   }
 @AfterEach
     public void TearDown() {
         webDriver.quit();
