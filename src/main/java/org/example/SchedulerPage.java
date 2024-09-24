@@ -58,6 +58,7 @@ public class SchedulerPage extends BasePage {
         WebElement dayScheduler = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//tbody/tr/td[contains(@class,'today ')]")));
         Actions actions = new Actions(webDriver);
         actions.dragAndDrop(messageRule, dayScheduler).build().perform();
+        actions.
         return new SchedulerPage(webDriver);
     }
 

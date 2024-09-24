@@ -22,10 +22,10 @@ public class CreateSiteTest extends TestBase {
         Thread.sleep(5000);
         createSite.inputSiteIndustry("IMN Dating")
                 .selectSiteType()
-                .inputSiteName("NewMobileSiteTest1")
-                .inputDomainNew("autoTest.cliq-track-master.sb.cliqonline.com")
-                .inputTrackDomainNew("autoTest.cliq-track-master.sb.cliqonline.com")
-                .inputCdnDomainNew("autoTest.cliq-track-master.sb.cliqonline.com")
+                .inputSiteName("NewMobileSiteTest11")
+                .inputDomainNew("autoTest11.cliq-track-master.sb.cliqonline.com")
+                .inputTrackDomainNew("autoTest11.cliq-track-master.sb.cliqonline.com")
+                .inputCdnDomainNew("autoTest11.cliq-track-master.sb.cliqonline.com")
                 .clickSaveButton();
         Thread.sleep(5000);
         Assertions.assertTrue(createSite.checkResultPhrase());
@@ -40,7 +40,7 @@ public class CreateSiteTest extends TestBase {
         Thread.sleep(3000);
         mainPage.chooseSiteForCreateFromMenu();
         Thread.sleep(3000);
-        mainPage.selectSiteName("NewMobileSiteTest1")
+        mainPage.selectSiteName("NewMobileSiteTest11")
                 .clickSubmitButton();
         Assertions.assertTrue(mainPage.checkFinalResultCreateMobileAppSite());
         Thread.sleep(3000);
