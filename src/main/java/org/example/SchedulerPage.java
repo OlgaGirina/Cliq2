@@ -10,7 +10,6 @@ public class SchedulerPage extends BasePage {
     public SchedulerPage(WebDriver webDriver) {
         super(webDriver);
     }
-
     int v = 30;
     private By pushSystemMenu = By.xpath("//i[@class=\"fa fa-bell\"]");
     private By schedulerMenu = By.xpath("//li/a[@href=\"/push-notification/scheduler\"]");
@@ -32,6 +31,7 @@ public class SchedulerPage extends BasePage {
     private By selectChooseIndustry = By.xpath("//span[@id = \"select2-schedulerfiltermodel-industry_id-container\"]");
     private By inputIndustry = By.xpath("//span/input[@class='select2-search__field']");
     private By industryExample = By.xpath("//ul/li[@class=\"select2-results__option select2-results__option--highlighted\"]");
+    private By applyToDelete = By.xpath("//button[@class=\"btn btn-warning\"]");
 
     public String getTextSchedulerSite() {
         wait.until(ExpectedConditions.visibilityOfElementLocated(checkSiteText));
@@ -58,7 +58,6 @@ public class SchedulerPage extends BasePage {
         WebElement dayScheduler = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//tbody/tr/td[contains(@class,'today ')]")));
         Actions actions = new Actions(webDriver);
         actions.dragAndDrop(messageRule, dayScheduler).build().perform();
-        actions.
         return new SchedulerPage(webDriver);
     }
 
@@ -105,6 +104,21 @@ public class SchedulerPage extends BasePage {
         } catch (TimeoutException timeoutException) {
             return false;
         }
+    }
+    public SchedulerPage deleteJustCreatedRule(String createdRuleName) throws InterruptedException {
+        WebElement deleteIcon = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[text()=' - " + createdRuleName + "']/..//i[@class='fa fa-trash-o']")));
+        deleteIcon.click();
+        Thread.sleep(1000);
+        return this;
+    }
+    public SchedulerPage pressDeleteButton(){
+        WebElement deleteRule = wait.until(ExpectedConditions.visibilityOfElementLocated(applyToDelete));
+        deleteRule.click();
+        return this;
+    }
+    public boolean checkRuleDeleteCorrect(String createdRuleName) {
+       wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[text()=' - " + createdRuleName + "']/..//i[@class='fa fa-trash-o']")));;
+       return true;
     }
 }
 

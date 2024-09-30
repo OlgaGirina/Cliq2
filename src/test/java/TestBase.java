@@ -2,6 +2,7 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 import org.example.MainPage;
 import org.example.SignInPage;
 import org.example.CreateIndustry;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.example.CreateSite;
 import org.example.*;
@@ -20,14 +21,15 @@ public class TestBase {
     CreateSite createSite;
     SchedulerPage schedulerPage;
     CreatePartner createPartner;
+    CreateBrand createBrand;
     static WebDriverWait wait;
 
     @BeforeEach
     public void SetUp() {
-      //  WebDriverManager.chromedriver().setup();
+        //  WebDriverManager.chromedriver().setup();
         WebDriverManager.firefoxdriver().setup();
         webDriver = new FirefoxDriver();
-      //  webDriver = new ChromeDriver();
+        //  webDriver = new ChromeDriver();
         wait = new WebDriverWait(webDriver, Duration.ofSeconds(10));
         webDriver.manage().window().maximize();
         webDriver.get("http://short:short@cliq-backend-master.sb.cliqonline.com");
@@ -38,6 +40,11 @@ public class TestBase {
         schedulerPage = new SchedulerPage(webDriver);
         createSite = new CreateSite(webDriver);
         createPartner = new CreatePartner(webDriver);
+        createBrand = new CreateBrand(webDriver);
+    }
+    public static void setZoom (WebDriver driver, int zoomPercentage) {
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("document.body.style.zoom='" + zoomPercentage + "%'");
     }
 }
 

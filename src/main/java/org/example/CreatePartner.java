@@ -27,47 +27,54 @@ public class CreatePartner extends BasePage {
     private By buttonApply = By.xpath("//button[@type=\"submit\"]");
     private By buttonDeletePartner = By.xpath("//a/span[@class=\"glyphicon glyphicon-trash\"]");
     private By deleteOkButton = By.xpath("//button/span[@class=\"glyphicon glyphicon-ok\"]");
-    private By cleanAllPartnersInFilter= By.xpath("//ul/span[@class=\"select2-selection__clear\"]");
+    private By cleanAllPartnersInFilter = By.xpath("//ul/span[@class=\"select2-selection__clear\"]");
 
     public CreatePartner choosePartnerFromMenu() {
         wait.until(ExpectedConditions.visibilityOfElementLocated(partnerMenu)).click();
         return this;
     }
-    public CreatePartner pressButtonCreatePartner(){
+
+    public CreatePartner pressButtonCreatePartner() {
         wait.until(ExpectedConditions.visibilityOfElementLocated(createPartner)).click();
         return this;
     }
-    public CreatePartner chooseIndustryForNewPartner(String newIndustryAuto){
-      WebElement chooseIndustry = wait.until(ExpectedConditions.visibilityOfElementLocated(chooseIndustryInForm));
-      chooseIndustry.click();
-      WebElement chooseIndustry2 = wait.until(ExpectedConditions.visibilityOfElementLocated(inputIndustryFormPartnerCreating));
-      chooseIndustry2.click();
-      chooseIndustry2.sendKeys(newIndustryAuto);
-      webDriver.findElement(chooseIndustryInFormPartnerCreating).click();
-      return this;
-}
+
+    public CreatePartner chooseIndustryForNewPartner(String newIndustryAuto) {
+        WebElement chooseIndustry = wait.until(ExpectedConditions.visibilityOfElementLocated(chooseIndustryInForm));
+        chooseIndustry.click();
+        WebElement chooseIndustry2 = wait.until(ExpectedConditions.visibilityOfElementLocated(inputIndustryFormPartnerCreating));
+        chooseIndustry2.click();
+        chooseIndustry2.sendKeys(newIndustryAuto);
+        webDriver.findElement(chooseIndustryInFormPartnerCreating).click();
+        return this;
+    }
+
     public CreatePartner inputPartnerName(String newPartnerName) {
         WebElement newPartnerFormCreating = wait.until(ExpectedConditions.visibilityOfElementLocated(partnerNameInput));
         newPartnerFormCreating.click();
         newPartnerFormCreating.sendKeys(newPartnerName);
-     //   newPartnerFormCreating.sendKeys(Keys.ENTER);
+        //   newPartnerFormCreating.sendKeys(Keys.ENTER);
         return this;
     }
-    public CreatePartner pressButtonAddReferrer(){
+
+    public CreatePartner pressButtonAddReferrer() {
         wait.until(ExpectedConditions.visibilityOfElementLocated(addReferrerDomainButton)).click();
         return this;
     }
-    public CreatePartner addReferrerDomain(String referrerDomain){
-       WebElement referrerDomainInput = wait.until(ExpectedConditions.visibilityOfElementLocated(referrerAdd));
-       referrerDomainInput.click();
-       referrerDomainInput.sendKeys(referrerDomain);
-       referrerDomainInput.click();
+
+    public CreatePartner addReferrerDomain(String referrerDomain) {
+        WebElement referrerDomainInput = wait.until(ExpectedConditions.visibilityOfElementLocated(referrerAdd));
+        referrerDomainInput.click();
+        referrerDomainInput.sendKeys(referrerDomain);
+        referrerDomainInput.click();
         return this;
     }
-   public CreatePartner saveNewPartnerForm(){
+
+    public CreatePartner saveNewPartnerForm() {
         wait.until(ExpectedConditions.visibilityOfElementLocated(saveButton)).click();
         return this;
     }
+
     public boolean checkResultPhrasePartnerCreate() {
         try {
             wait.until(ExpectedConditions.visibilityOfElementLocated(partnerCreatedCheck));
@@ -76,22 +83,26 @@ public class CreatePartner extends BasePage {
             return false;
         }
     }
-    public CreatePartner chooseCreatedPartnerInFilter(String partner){
+
+    public CreatePartner chooseCreatedPartnerInFilter(String partner) {
         WebElement choosePartnerInFilter = wait.until(ExpectedConditions.visibilityOfElementLocated(partnerInFilter));
         choosePartnerInFilter.click();
-        choosePartnerInFilter.sendKeys(partner,Keys.ENTER);
+        choosePartnerInFilter.sendKeys(partner, Keys.ENTER);
 
         return this;
     }
-    public CreatePartner pressApplyInFilter(){
+
+    public CreatePartner pressApplyInFilter() {
         wait.until(ExpectedConditions.visibilityOfElementLocated(buttonApply)).click();
         return this;
     }
-    public CreatePartner pressDeletePartnerButton(){
+
+    public CreatePartner pressDeletePartnerButton() {
         wait.until(ExpectedConditions.visibilityOfElementLocated(buttonDeletePartner)).click();
         wait.until(ExpectedConditions.visibilityOfElementLocated(deleteOkButton)).click();
         return this;
     }
+
     public CreatePartner cleanFieldPartnerFromMenu() {
   /*      try {
             WebElement clickElement = webDriver.findElement(cleanAllPartnersInFilter);
@@ -104,13 +115,12 @@ public class CreatePartner extends BasePage {
             return null;
         }
     }*/
-        if (!webDriver.findElements(cleanAllPartnersInFilter).isEmpty()){
+        if (!webDriver.findElements(cleanAllPartnersInFilter).isEmpty()) {
             WebElement clickElement = webDriver.findElement(cleanAllPartnersInFilter);
             clickElement.click();
             return this;
-           }
-        else
-           {
+        } else {
             return this;
-           }
-    }}
+        }
+    }
+}

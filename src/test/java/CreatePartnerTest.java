@@ -28,9 +28,10 @@ public class CreatePartnerTest extends TestBase {
      //   createPartner.pressDeletePartnerButton();
         Thread.sleep(5000);*/
     }
+
     @Order(2)
     @Test
-    public void deletePartnerTest() throws  InterruptedException {
+    public void deletePartnerTest() throws InterruptedException {
 
         Thread.sleep(3000);
         createPartner.choosePartnerFromMenu();
@@ -43,8 +44,9 @@ public class CreatePartnerTest extends TestBase {
         Thread.sleep(5000);
         createPartner.pressDeletePartnerButton();
         Thread.sleep(5000);
-   }
-@AfterEach
+    }
+
+    @AfterEach
     public void TearDown() {
         webDriver.quit();
     }
