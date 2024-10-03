@@ -20,12 +20,13 @@ public class CreateSiteTest extends TestBase {
         String text3 = createSite1.getTextCancel();
         Assertions.assertEquals("Cancel", text3);
         Thread.sleep(5000);
-        createSite.inputSiteIndustry("IMN Dating")
-                .selectSiteType()
-                .inputSiteName("NewMobileSiteTest11")
-                .inputDomainNew("autoTest11.cliq-track-master.sb.cliqonline.com")
-                .inputTrackDomainNew("autoTest11.cliq-track-master.sb.cliqonline.com")
-                .inputCdnDomainNew("autoTest11.cliq-track-master.sb.cliqonline.com")
+        createSite.inputSiteIndustry("IMN Dating");
+        Thread.sleep(5000);
+        createSite.selectSiteType()
+                .inputSiteName("NewMobileSiteTest")
+                .inputDomainNew("autoTest.cliq-track-master.sb.cliqonline.com")
+                .inputTrackDomainNew("autoTest.cliq-track-master.sb.cliqonline.com")
+                .inputCdnDomainNew("autoTest.cliq-track-master.sb.cliqonline.com")
                 .clickSaveButton();
         Thread.sleep(5000);
         Assertions.assertTrue(createSite.checkResultPhrase());
@@ -40,7 +41,7 @@ public class CreateSiteTest extends TestBase {
         Thread.sleep(3000);
         mainPage.chooseSiteForCreateFromMenu();
         Thread.sleep(3000);
-        mainPage.selectSiteName("NewMobileSiteTest11")
+        mainPage.selectSiteName("NewMobileSiteTest")
                 .clickSubmitButton();
         Assertions.assertTrue(mainPage.checkFinalResultCreateMobileAppSite());
         Thread.sleep(3000);

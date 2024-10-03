@@ -98,5 +98,6 @@ public class CreateBrand extends BasePage {
         wait.until(ExpectedConditions.visibilityOfElementLocated(buttonApply)).click();
         return this;
     }
+   // public CreateBrand delete
 
 }

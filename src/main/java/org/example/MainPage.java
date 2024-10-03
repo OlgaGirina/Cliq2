@@ -21,11 +21,11 @@ public class MainPage extends BasePage {
     private By siteNameSelect = By.xpath("//*[@id=\"w0-filters\"]/div[3]/div/span/span[1]/span/ul/li/input");
     private By siteNameMobileApp = By.xpath("//li[@class=\"select2-results__option select2-results__option--highlighted\"]");
     private By submitButton = By.xpath("//button[@type = \"submit\"]");
-    private By siteNameCheck = By.xpath("//span[text() = \"NewMobileSiteTest11\"]");
+    private By siteNameCheck = By.xpath("//span[text() = \"NewMobileSiteTest\"]");
     private By deleteButton = By.xpath("//span[@class=\"glyphicon glyphicon-trash\"]");
     private By confirmDeleteButton = By.xpath("//button[@class = \"btn btn-warning\"]");
     private By industryMenu = By.xpath("//a[@href=\"/industry\"]/span[text() = \"Industries\"]");
-    private By industrySelect = By.xpath("//input[@role = \"textbox\"]");
+    private By industrySelect = By.xpath("//input[@role = \"searchbox\"]");
     private By submitFindIndustry = By.xpath("//button[@type = \"submit\"]");
 
     // private By buttonCreateSite = By.xpath("//button[@type='submit']");

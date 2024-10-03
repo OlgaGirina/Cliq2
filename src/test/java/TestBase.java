@@ -26,13 +26,13 @@ public class TestBase {
 
     @BeforeEach
     public void SetUp() {
-        //  WebDriverManager.chromedriver().setup();
-        WebDriverManager.firefoxdriver().setup();
-        webDriver = new FirefoxDriver();
-        //  webDriver = new ChromeDriver();
+          WebDriverManager.chromedriver().setup();
+       // WebDriverManager.firefoxdriver().setup();
+       // webDriver = new FirefoxDriver();
+          webDriver = new ChromeDriver();
         wait = new WebDriverWait(webDriver, Duration.ofSeconds(10));
         webDriver.manage().window().maximize();
-        webDriver.get("http://short:short@cliq-backend-master.sb.cliqonline.com");
+        webDriver.get("http://short:short@cliq-backend-r102283.sb.cliqonline.com");
         //Set Up Pages
         signInPage = new SignInPage(webDriver);
         mainPage = new MainPage(webDriver);

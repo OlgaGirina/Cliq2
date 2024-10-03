@@ -14,7 +14,7 @@ public class CreateIndustry extends BasePage  {
     private final By buttonCreateIndustry = By.xpath("//button[@type='submit']");
     private By industryNameField = By.xpath("//input[@id = \"industry-name\"]");
     private By industryDescriptionField = By.xpath("//input[@id = \"industry-description\"]");
-    private By successfullyCreatedIndustryNotification = By.xpath("//div[@id = \"w3-success-0\"]");
+    private By successfullyCreatedIndustryNotification = By.xpath("//div[@id = \"w5-success-0\"]");
     private By chooseLeadType1 = By.xpath("//div[@class='row'][3]//span[@role='combobox']");
     private By chooseLeadType2 = By.xpath("//li[text()='Lead']");
     private By addFeature = By.xpath("//a[text()='Features']");

@@ -16,12 +16,12 @@ public class CreateBrandTest extends TestBase {
         Thread.sleep(2000);
         createBrand.choosePartnerForNewBrand("newPartnerName10");
         Thread.sleep(2000);
-        createBrand.inputBrandName("BrandAuto");
+        createBrand.inputBrandName("BrandAuto1");
         createBrand.clickSaveBrand();
         Assertions.assertTrue(createBrand.checkBrandSaved());
         createBrand.cleanFieldIndustryFromMenu();
         createBrand.chooseIndustryInFilter("NewIndustryAuto");
-        createBrand.chooseBrandInFilter("BrandAuto");
+        createBrand.chooseBrandInFilter("BrandAuto1");
         createBrand.pressApplyInFilter();
 
 }

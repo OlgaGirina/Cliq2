@@ -11,7 +11,7 @@ public class MainPageTest extends TestBase {
         CreateIndustry createIndustry1 = mainPage.createIndustry();
         String text = createIndustry1.getTextButton();
         Assertions.assertEquals("Save", text);
-        createIndustry.inputIndustryName("IndustryName9");
+        createIndustry.inputIndustryName("IndustryName103");
         createIndustry.inputIndustryDescription("Description8");
         createIndustry.selectLeadType();
         createIndustry.pressButtonSave();
@@ -22,7 +22,7 @@ public class MainPageTest extends TestBase {
         Assertions.assertTrue(createIndustry.checkResultPhrase());
         mainPage.chooseIndustryFromMenu();
         Thread.sleep(3000);
-        mainPage.selectIndustryName("Industry_AutoTest12");
+        mainPage.selectIndustryName("IndustryName103");
         Thread.sleep(3000);
       //  mainPage.deleteCreatedSiteAndIndustry();
         Thread.sleep(3000);

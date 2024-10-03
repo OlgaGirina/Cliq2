@@ -18,8 +18,8 @@ public class CreateSite extends BasePage {
     private final By buttonCancel = By.xpath("//div/a[@href='/site/index']");
     private final By buttonSave = By.xpath("//button[@type='submit']");
     private By siteNewChooseIndustry = By.xpath("//span[@dir='ltr'][1]");
-    private By inputSiteNameNew = By.xpath("//input[@role='textbox']");
-    private By chooseSiteIndustryFromList = By.xpath("//li[@role='treeitem']");
+    private By inputSiteNameNew = By.xpath("//input[@role='searchbox']");
+    private By chooseSiteIndustryFromList = By.xpath("//li[@role='option']");
     private By siteTypeSelect = By.xpath("//select[@id='site-site_type']");
     private By siteTypeMobileApp = By.xpath("//select[@name='Site[site_type]']/option[@value='7']");
     private By inputSiteName1 = By.xpath("//input[@id='site-name']");
@@ -30,11 +30,11 @@ public class CreateSite extends BasePage {
     private By firstPageMobileSiteCreated = By.xpath("//button[@data-dismiss=\"alert\"]");
     private By SelectPushNotification = By.xpath("//a[text()='Push notifications']");
     private By checkTextForAddPush = By.xpath("//a[text()='Push notifications']");
-    private By checkBox1 = By.xpath("//div[@class='form-group field-site-settings-push_notifier_enabled']/div/div/input[@type=\"checkbox\"]");
-    private By checkBox2 = By.xpath("//div[@class='form-group field-site-settings-push_notifier_back_link_enabled']/div/div/input[@type=\"checkbox\"]");
+    private By checkBox1 = By.xpath("//input[@type=\"checkbox\"][@name=\"Site[settings][push_notifier_enabled]\"]");
+    private By checkBox2 = By.xpath("//input[@type=\"checkbox\"][@name=\"Site[settings][push_notifier_back_link_enabled]\"]");
     private By pushApplicationVariant = By.xpath("//span[text()=\"Select ...\"]");
-    private By inputForApp = By.xpath("//input[@role='textbox']");
-    private By chooseApp = By.xpath("//li[@role='treeitem']");
+    private By inputForApp = By.xpath("//input[@role='searchbox']");
+    private By chooseApp = By.xpath("//li[@role='option']");
     //div[@class='form-group field-site-settings-push_notifier_enabled form-group-has-success']/div[@class="col-xs-5"]/div/input[@value=0]
 
     public String getTextCancel() {
@@ -51,6 +51,7 @@ public class CreateSite extends BasePage {
     public CreateSite inputSiteIndustry(String createSiteNameIndustry) {
         WebElement chooseIndustry = wait.until(ExpectedConditions.visibilityOfElementLocated(siteNewChooseIndustry));
         chooseIndustry.click();
+
         webDriver.findElement(inputSiteNameNew).sendKeys(createSiteNameIndustry);
         webDriver.findElement(chooseSiteIndustryFromList).click();
         return this;
