@@ -23,8 +23,8 @@ public class SchedulerPage extends BasePage {
     private By startDate = By.xpath("//tr/td[@class='today active start-date active end-date available']");
     private By endDate = By.xpath("//tr/td[@class='today active start-date available']");
     private By applyDate = By.xpath("//div/button[@class=\"applyBtn btn btn-sm btn-success\"]");
-    private By chooseTime = By.xpath("//input[@id='pushnotificationdelivery-daterange']");
-    private By chooseTime1 = By.xpath("//li[@role=\"treeitem\"]");
+    private By chooseTime = By.xpath("//form[@id='delivery-form']/div[12]/div/div/div/span/span/span/ul/li/input");
+    private By chooseTime1 = By.xpath("//li[@role=\"option\"]");
     private By testStart = By.xpath("//li[@title=\"12:00 AM\"]");
     private By sendRuleForm = By.xpath("//button[@form=\"delivery-form\"]");
     private By ruleCreated = By.xpath("//div[text()='Scheduler']");

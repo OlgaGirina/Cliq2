@@ -12,7 +12,6 @@ public class CreatePartner extends BasePage {
     public CreatePartner(WebDriver webDriver) {
         super(webDriver);
     }
-
     private By partnerMenu = By.xpath("//li/a[@href=\"/partner\"]");
     private By createPartner = By.xpath("//a[@href='/partner/create']");
     private By partnerNameInput = By.xpath("//input[@name='Partner[name]']");

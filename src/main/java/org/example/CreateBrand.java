@@ -23,7 +23,7 @@ public class CreateBrand extends BasePage {
     private By industryInFilter = By.xpath("//*[@id=\"w0-filters\"]/div[1]/div/span/span[1]/span/ul/li/input");
 
     private By brandInFilter = By.xpath("//*[@id=\"w0-filters\"]/div[5]/div/span/span[1]/span/ul/li/input");
-   private By buttonApply = By.cssSelector("button.btn.btn-success.btn-icon.js-apply-grid-filter");
+    private By buttonApply = By.cssSelector("button.btn.btn-success.btn-icon.js-apply-grid-filter");
     public CreateBrand chooseBrandFromMenu() {
         wait.until(ExpectedConditions.visibilityOfElementLocated(brandMenu)).click();
         return this;
@@ -32,7 +32,6 @@ public class CreateBrand extends BasePage {
         wait.until(ExpectedConditions.visibilityOfElementLocated(createBrand)).click();
         return this;
     }
-
     public CreateBrand chooseIndustryForNewBrand(String newIndustryAuto){
         WebElement chooseIndustry = wait.until(ExpectedConditions.visibilityOfElementLocated(industryInFormBrandCreating));
         chooseIndustry.click();
@@ -49,7 +48,6 @@ public class CreateBrand extends BasePage {
         //   newPartnerFormCreating.sendKeys(Keys.ENTER);
         return this;
     }
-
     public CreateBrand choosePartnerForNewBrand(String partnerAuto){
         WebElement choosePartner = wait.until(ExpectedConditions.visibilityOfElementLocated(partnerInFormBrandCreating));
         choosePartner.click();
@@ -98,6 +96,4 @@ public class CreateBrand extends BasePage {
         wait.until(ExpectedConditions.visibilityOfElementLocated(buttonApply)).click();
         return this;
     }
-   // public CreateBrand delete
-
 }

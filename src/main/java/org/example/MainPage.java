@@ -28,8 +28,6 @@ public class MainPage extends BasePage {
     private By industrySelect = By.xpath("//input[@role = \"searchbox\"]");
     private By submitFindIndustry = By.xpath("//button[@type = \"submit\"]");
 
-    // private By buttonCreateSite = By.xpath("//button[@type='submit']");
-
     public String getText() {
         wait.until(ExpectedConditions.visibilityOfElementLocated(text));
         return webDriver.findElement(text).getText();
@@ -41,7 +39,6 @@ public class MainPage extends BasePage {
         webDriver.findElement(buttonCreateIndustry).click();
         return new CreateIndustry(webDriver);
     }
-
 
     public MainPage chooseFromMenu() {
         wait.until(ExpectedConditions.visibilityOfElementLocated(pushSystemMenu)).click();
@@ -94,7 +91,6 @@ public class MainPage extends BasePage {
         wait.until(ExpectedConditions.visibilityOfElementLocated(confirmDeleteButton)).click();
         return this;
     }
-
     public MainPage deleteCreatedIndustry() {
         wait.until(ExpectedConditions.visibilityOfElementLocated(deleteButton)).click();
         wait.until(ExpectedConditions.visibilityOfElementLocated(confirmDeleteButton)).click();

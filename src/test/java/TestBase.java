@@ -23,13 +23,12 @@ public class TestBase {
     CreatePartner createPartner;
     CreateBrand createBrand;
     static WebDriverWait wait;
-
     @BeforeEach
     public void SetUp() {
           WebDriverManager.chromedriver().setup();
        // WebDriverManager.firefoxdriver().setup();
        // webDriver = new FirefoxDriver();
-          webDriver = new ChromeDriver();
+        webDriver = new ChromeDriver();
         wait = new WebDriverWait(webDriver, Duration.ofSeconds(10));
         webDriver.manage().window().maximize();
         webDriver.get("http://short:short@cliq-backend-r102283.sb.cliqonline.com");

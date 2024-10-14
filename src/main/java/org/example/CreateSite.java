@@ -93,8 +93,6 @@ public class CreateSite extends BasePage {
         wait.until(ExpectedConditions.visibilityOfElementLocated(buttonCancel));
         return webDriver.findElement(buttonCancel).getText();
     }
-
-    //   public CreateSite
     public boolean checkResultPhrase() {
         try {
             wait.until(ExpectedConditions.visibilityOfElementLocated(firstPageMobileSiteCreated));
@@ -103,23 +101,19 @@ public class CreateSite extends BasePage {
             return false;
         }
     }
-
     public CreateSite changeTab() {
         webDriver.findElement(SelectPushNotification).click();
         wait.until(ExpectedConditions.visibilityOfElementLocated(checkTextForAddPush));
         return this;
     }
-
     public CreateSite activateCheckboxEnabledPushNotifications() {
         webDriver.findElement(checkBox1).click();
         return this;
     }
-
     public CreateSite activateCheckboxBackLink() {
         webDriver.findElement(checkBox2).click();
         return this;
     }
-
     public CreateSite inputPushApplication(String variantPushApplication) {
         WebElement chooseIndustry = wait.until(ExpectedConditions.visibilityOfElementLocated(pushApplicationVariant));
         chooseIndustry.click();

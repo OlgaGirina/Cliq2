@@ -23,7 +23,6 @@ public class CreateBrandTest extends TestBase {
         createBrand.chooseIndustryInFilter("NewIndustryAuto");
         createBrand.chooseBrandInFilter("BrandAuto1");
         createBrand.pressApplyInFilter();
-
 }
     @AfterEach
     public void TearDown() {
